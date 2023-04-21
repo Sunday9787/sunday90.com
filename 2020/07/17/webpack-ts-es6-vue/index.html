@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>webpack+ts+es6+vue 配置教程 | 机车靓仔</title>
+
+    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png&#34; alt=&#34;webpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。&lt;/p&gt;
+&lt;p&gt;最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？&lt;/p&gt;">
+    <meta name="keywords" content="JS TS ES6 Typescript Vue全家桶">
+
+    
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "webpack+ts+es6+vue 配置教程 | 机车靓仔"  />
+    <meta property="og:description" content= "&lt;p&gt;&lt;img src=&#34;https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png&#34; alt=&#34;webpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。&lt;/p&gt;
+&lt;p&gt;最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？&lt;/p&gt;" />
+    <meta property="og:url" content="https://sunday9787.github.io/2020/07/17/webpack-ts-es6-vue/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Edward" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;&lt;img src=&#34;https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png&#34; alt=&#34;webpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。&lt;/p&gt;
+&lt;p&gt;最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？&lt;/p&gt;" />
+    <meta name="twitter:title" content="webpack+ts+es6+vue 配置教程 | 机车靓仔"/>
+    <meta name="twitter:description" content="&lt;p&gt;&lt;img src=&#34;https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png&#34; alt=&#34;webpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。&lt;/p&gt;
+&lt;p&gt;最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;&lt;img src=&#34;https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png&#34; alt=&#34;webpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。&lt;/p&gt;
+&lt;p&gt;最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Edward" },
+            "@type": "BlogPosting",
+            "url": "https://sunday9787.github.io/2020/07/17/webpack-ts-es6-vue/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://sunday9787.github.iohttps://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg"
+            },
+            "name": "Edward"
+            },
+            "headline": "webpack+ts+es6+vue 配置教程 | 机车靓仔",
+            "datePublished": "2020-07-17T14:46:52.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://sunday9787.github.io/2020/07/17/webpack-ts-es6-vue/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-26-12-favicon.ico">
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg" alt="Edward">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>机车靓仔</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">摄影</a>
+                
+                <a href="/friends">友链</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/Sunday9787">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">摄影</a>
+                    
+                    <a href="/friends">友链</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clgqkt3df000e1fgs4zh50jf8" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      webpack+ts+es6+vue 配置教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2020-07-17T14:46:52.000Z" itemprop="datePublished">2020-07-17</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/webpack/">webpack</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p><img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-18-04-41-2023-02-28-02-00-30-20230228020028.png" alt="webpack"></p>
+<p>之前一直搞不懂webpack，也排斥学习 总是觉得太难了 配置太复杂。。。</p>
+<p>最近一段时间没事写写轮播图玩，传统dom形式是写通了，我想拿到vue, react用呢？</p>
+<span id="more"></span>
+
+<p>理解webpack如何配置？</p>
+<p>打造自己的组件库？</p>
+<p>那么现在开始吧</p>
+<hr>
+<h1 id="Webpack-的四大核心"><a href="#Webpack-的四大核心" class="headerlink" title="Webpack 的四大核心"></a>Webpack 的四大核心</h1><ul>
+<li>entry 入口源文件</li>
+<li>output 生成文件出口</li>
+<li>loader 进行文件处理</li>
+<li>plugins 插件，比 loader 更强大，能使用更多 webpack 的 api</li>
+</ul>
+<p>下面配置一个 vue + ts + tsx webpack配置【基于v4】</p>
+<h2 id="第一步-配置-入口出口模块"><a href="#第一步-配置-入口出口模块" class="headerlink" title="第一步 配置 入口出口模块"></a>第一步 配置 入口出口模块</h2><p>先把入口出口模块配置</p>
+<pre><code class="js">module.exports = &#123;
+  mode: process.env.NODE_ENV,  // 启用不同类型的 mode 得到的优化效果不一样
+  devtool: &#39;source-map&#39;,  // webpack serve 运行的时候 添加 source-map
+  entry: util.resolve(&#39;src/components/main.ts&#39;),   // 入口文件
+  output: &#123;
+    filename: &#39;index.js&#39;,  // 打包后的文件名
+    path: util.resolve(&#39;dist&#39;),   // 输出的目录
+    publicPath: &#39;/&#39;,  // 结合 HtmlWebpackPlugin 使用，定义资源基准地址
+    // chunkFilename: &#39;[id].js&#39;,    // 哈希name
+    libraryTarget: &#39;umd&#39;,  // 打包成什么类型模块 如果打包成 common 模块推荐 commonjs2
+    library: &#39;swiper&#39;,  // 对外暴露的模块名称
+    umdNamedDefine: true,  // 如果设置了 libraryTarget： &#39;umd&#39; 则 需要设置 umdNamedDefine: true
+  &#125;,
+  // ...more
+&#125;
+</code></pre>
+<h2 id="第二步-配置可以被解析的文件"><a href="#第二步-配置可以被解析的文件" class="headerlink" title="第二步 配置可以被解析的文件"></a>第二步 配置可以被解析的文件</h2><p>配置 可以被解析的文件</p>
+<p>因为我们要支持ts和vue打包，所以 extensions 要加 <code>.vue</code> <code>.ts</code></p>
+<p>再配置一个别名 方便我们 在项目中 import 例如 <code>import xxx form &#39;@/xxxx&#39;</code></p>
+<pre><code class="js">module.exports = &#123;
+  // ...more
+  resolve: &#123;
+    extensions: [&#39;.js&#39;, &#39;.vue&#39;, &#39;.json&#39;, &#39;.ts&#39;],  // 可以被解析的文件
+    alias: &#123;
+      &#39;@&#39;: util.resolve(&#39;src&#39;), // 别名 tsconfig 也同样需要配置一份  详见  tsconfig `paths`选项
+    &#125;,
+  &#125;,
+&#125;
+</code></pre>
+<h2 id="第三步-配置外部资源"><a href="#第三步-配置外部资源" class="headerlink" title="第三步 配置外部资源"></a>第三步 配置外部资源</h2><p>配置 外部资源，这些资源不需要被打包在一起</p>
+<pre><code class="js">module.exports = &#123;
+  // ...more
+  externals: [&#123; vue: &#39;Vue&#39; &#125;],  // 外部已经有的依赖模块 至于为何是 数组 或者对象 字符串 还是自己百度一下实际测试，我说的可能不太对，总的来说是 模块对外暴露的名称 和 模块 名称
+&#125;
+</code></pre>
+<h2 id="第四步-配置-module"><a href="#第四步-配置-module" class="headerlink" title="第四步 配置 module"></a>第四步 配置 module</h2><p>配置 module</p>
+<p>我们想 打包一个vue + ts&#x2F;tsx scss 需要用到什么loader？</p>
+<ul>
+<li>vue 肯定要 vue-loader</li>
+<li>ts ts-loader</li>
+<li>scss sass-loader</li>
+</ul>
+<p><em>loader 的执行顺序是 从 <code>右</code> 到 <code>左</code> 切记 loader顺序错误依然不会正确打包</em></p>
+<ul>
+<li>解析 <code>.ts</code> 首先要通过ts-loader 检查ts类型校验 然后 被编译成esnext 模块，babel-loader 再编译成浏览器能处理的js模块和js版本</li>
+</ul>
+<pre><code class="js">module.exports = &#123;
+  // ...more
+  module: &#123;
+    rules: [
+      // ...more
+      &#123;
+        test: /\.ts$/i,
+        loader: &#39;babel-loader!ts-loader&#39;,   // 处理ts文件 loader 传递loader的名称 ! 代表 多个loader分隔符 简写【猜的。。。】
+      &#125;,
+    ],
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>解析 <code>.tsx</code></li>
+</ul>
+<pre><code class="js">module.exports = &#123;
+  // ...more
+  module: &#123;
+    rules: [
+      // ...more
+      &#123;
+        test: /\.tsx$/i,
+        use: [
+          &#123; loader: &#39;babel-loader&#39; &#125;,  // ts 处理完后 交给 babel 编译成 普通 js文件 es5版本(根据babel配置)
+          &#123;
+            loader: &#39;ts-loader&#39;,
+            options: &#123;
+              appendTsSuffixTo: [/\.vue$/], // 让 ts 支持 .vue 文件处理 敲黑板 这一步不要忘记  场景 .tsx 文件中去引入 .vue组件 引用链接 https://segmentfault.com/a/1190000012024858
+            &#125;,
+          &#125;,
+        ],
+        exclude: util.resolve(&#39;node_modules&#39;),  // 不处理的目录
+      &#125;,
+    ],
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>解析 <code>.scss</code><br>这一步需要先配置 sass-loader 然后<br>交给 postcss-loader 自动添加浏览器前缀<br>再交给 css-loader<br>再 交给 MiniCssExtractPlugin.loader 导出.css 文件</li>
+</ul>
+<pre><code class="js">module.exports = &#123;
+  // ...more
+  module: &#123;
+    // ...more
+    rules: [
+      &#123;
+        test: /\.s[ac]ss$/i,
+        use: [
+          &#123;
+            loader: MiniCssExtractPlugin.loader,  // 导出为.css
+            options: &#123;
+              publicPath: &#39;/&#39;,
+              hmr: process.env.NODE_ENV === &#39;development&#39;,  // css 热更新
+            &#125;,
+          &#125;,
+          &#39;css-loader&#39;,
+          &#39;postcss-loader&#39;,   // 帮助自动添加浏览器后缀
+          &#123;
+            loader: &#39;sass-loader&#39;,
+            options: &#123;
+              implementation: require(&#39;dart-sass&#39;),   // 默认使用的是 node-sass node-sass 下载巨慢。。。 推荐 dart-sass 下载速度还快 
+            &#125;,
+          &#125;,
+        ],
+      &#125;,
+    ]
+  &#125;
+&#125;
+</code></pre>
+<h2 id="最后奉上-最终配置"><a href="#最后奉上-最终配置" class="headerlink" title="最后奉上 最终配置"></a>最后奉上 最终配置</h2><pre><code class="js">const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;);    // vue-loader 的所有插件 处理template .vue专用 插件
+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);    // webpack 加载一个 html 作为 结果展示页
+const UglifyJsPlugin = require(&#39;uglifyjs-webpack-plugin&#39;);   // 压缩js
+const MiniCssExtractPlugin = require(&#39;mini-css-extract-plugin&#39;);  // 把 css 文件导出到本地
+
+const util = require(&#39;./util&#39;);   // 工具包
+
+/**
+ * @type &#123;import(&#39;webpack&#39;).Configuration&#125;
+ */
+module.exports = &#123;
+  mode: process.env.NODE_ENV,  // 启用不同类型的 mode 得到的优化效果不一样
+  devtool: &#39;source-map&#39;,  // webpack serve 运行的时候 添加 source-map
+  entry: util.resolve(&#39;src/components/main.ts&#39;),   // 入口文件
+  output: &#123;
+    filename: &#39;index.js&#39;,  // 打包后的文件名
+    path: util.resolve(&#39;dist&#39;),   // 输出的目录
+    publicPath: &#39;/&#39;,  // 结合 HtmlWebpackPlugin 使用，定义资源基准地址
+    // chunkFilename: &#39;[id].js&#39;,    // 哈希name
+    libraryTarget: &#39;umd&#39;,  // 打包成什么类型模块 如果打包成 common 模块推荐 commonjs2
+    library: &#39;swiper&#39;,  // 对外暴露的模块名称
+    umdNamedDefine: true,  // 如果设置了 libraryTarget： &#39;umd&#39; 则 需要设置 umdNamedDefine: true
+  &#125;,
+  resolve: &#123;
+    extensions: [&#39;.js&#39;, &#39;.vue&#39;, &#39;.json&#39;, &#39;.ts&#39;],  // 可以被解析的文件
+    alias: &#123;
+      &#39;@&#39;: util.resolve(&#39;src&#39;), // 别名 tsconfig 也同样需要配置一份  详见  tsconfig `paths`选项
+    &#125;,
+  &#125;,
+  externals: [&#123; vue: &#39;Vue&#39; &#125;],  // 外部已经有的依赖模块
+  module: &#123;   // loader 执行顺序是 从 右 到 左
+    rules: [
+      &#123;
+        test: /\.ts$/i,
+        loader: &#39;babel-loader!ts-loader&#39;,   // 处理ts文件 loader 传递loader的名称 ! 代表 多个loader分隔符 简写【猜的。。。】
+      &#125;,
+      &#123;
+        test: /\.tsx$/i,
+        use: [
+          &#123; loader: &#39;babel-loader&#39; &#125;,
+          &#123;
+            loader: &#39;ts-loader&#39;,
+            options: &#123;
+              appendTsSuffixTo: [/\.vue$/], // 让 ts 支持 .vue 文件处理
+            &#125;,
+          &#125;,
+        ],
+        exclude: util.resolve(&#39;node_modules&#39;),  // 不处理的目录
+      &#125;,
+      &#123;
+        test: /\.(es6|js|mjs)$/i,
+        include: util.resolve(&#39;src&#39;),  // 可以被处理的目录
+        exclude: util.resolve(&#39;node_modules&#39;),
+        use: [
+          &#123;
+            loader: &#39;babel-loader&#39;,
+          &#125;,
+        ],
+      &#125;,
+      &#123;
+        test: /\.vue$/i,
+        loader: &#39;vue-loader&#39;,     // .vue 文件 vue-loader 会把他们处理成 .js .css,
+        options: &#123;                // 所以 对 于 这种类型文件 需要 再配置 loader
+          loaders: &#123;
+            js: &#39;babel-loader&#39;,
+            ts: &#39;babel-loader!ts-loader&#39;,
+            tsx: &#39;babel-loader!ts-loader&#39;,   // 好像这个不需要。。。我没试过  .vue || tsx 只能选一个
+          &#125;,
+          compilerOptions: &#123;
+            preserveWhitespace: false, // 放弃模板标签之间的空格 详看 https://vue-loader.vuejs.org/zh/options.html#compiler
+          &#125;,
+        &#125;,
+      &#125;,
+      &#123;
+        test: /\.css$/,
+        use: [&#39;css-loader&#39;],
+      &#125;,
+      &#123;
+        test: /\.s[ac]ss$/i,
+        use: [
+          &#123;
+            loader: MiniCssExtractPlugin.loader,  // 导出为.css
+            options: &#123;
+              publicPath: &#39;/&#39;,
+              hmr: process.env.NODE_ENV === &#39;development&#39;,  // css 热更新
+            &#125;,
+          &#125;,
+          &#39;css-loader&#39;,
+          &#39;postcss-loader&#39;,   // 帮助自动添加浏览器后缀
+          &#123;
+            loader: &#39;sass-loader&#39;,
+            options: &#123;
+              implementation: require(&#39;dart-sass&#39;),   // 默认使用的是 node-sass node-sass 下载巨慢。。。 推荐 dart-sass 下载速度还快 
+            &#125;,
+          &#125;,
+        ],
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin(&#123;
+      // filename: &#39;[name].[chunkhash:8].css&#39;,     // 哈希name `chunkhash` 打包为库之类的不需要哈希，只有实际业务开发打包的文件最好加哈希
+      // chunkFilename: &#39;[id].[chunkhash:8].css&#39;,
+    &#125;),
+    new HtmlWebpackPlugin(&#123;
+      title: &#39;My App&#39;,
+      filename: &#39;index.html&#39;,
+      template: util.resolve(&#39;public/index.html&#39;),
+      // inject: &#39;head&#39;,    // 把打包后的资源链接 插入到 HTML那个位置
+    &#125;),
+  ],
+  stats: &#39;normal&#39;,    // 打包控制台输出的信息 类别
+  optimization: &#123;
+    minimizer: [
+      new UglifyJsPlugin(&#123;
+        cache: util.resolve(&#39;.cache&#39;),
+        parallel: true,
+        sourceMap: true,
+      &#125;),
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<p>那么有什么问题 可以留言，请多多指教</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          项目工程化之 eslint+prettier+stylelint+commitlint
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/05/tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">dom-tips</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=webpack+ts+es6+vue 配置教程 - 机车靓仔&url=https%3A%2F%2Fsunday9787.github.io%2F2020%2F07%2F17%2Fwebpack-ts-es6-vue%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=webpack+ts+es6+vue 配置教程 - 机车靓仔&u=https%3A%2F%2Fsunday9787.github.io%2F2020%2F07%2F17%2Fwebpack-ts-es6-vue%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=webpack+ts+es6+vue 配置教程 - 机车靓仔&url=https://sunday9787.github.io/2020/07/17/webpack-ts-es6-vue/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments comments-disqus">
+    <div id="disqus_thread"></div>
+    <script>
+        ;(function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script')
+            s.src =
+                'https://ji-che-jing-zi.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())
+            ;(d.head || d.body).appendChild(s)
+        })()
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pixijs/">pixijs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nextTick/" rel="tag">$nextTick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element-form/" rel="tag">element-form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stylelint/" rel="tag">stylelint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%AE%89%E5%85%A8/" rel="tag">web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/">项目工程化之 eslint+prettier+stylelint+commitlint</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/webpack-ts-es6-vue/">webpack+ts+es6+vue 配置教程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/tips/">dom-tips</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/element-form/">element-form resetFields 与 Vue $nextTick</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/16/target=_blank/">target=&#39;_blank&#39;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            机车靓仔 &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f5283a8f589ab63d2406c1a2ecac6162";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

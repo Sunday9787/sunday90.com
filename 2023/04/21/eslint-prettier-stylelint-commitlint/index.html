@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>项目工程化之 eslint+prettier+stylelint+commitlint | 机车靓仔</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？&lt;/p&gt;
+&lt;p&gt;[X] 文档约定 - 谆谆教导，自求多福？&lt;/p&gt;
+&lt;p&gt;[X] 经常性 CodeRevice - 苦口婆心，耳提面命？&lt;/p&gt;
+&lt;p&gt;显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…&lt;br&gt;理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。&lt;/p&gt;">
+    <meta name="keywords" content="JS TS ES6 Typescript Vue全家桶">
+
+    
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "项目工程化之 eslint+prettier+stylelint+commitlint | 机车靓仔"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？&lt;/p&gt;
+&lt;p&gt;[X] 文档约定 - 谆谆教导，自求多福？&lt;/p&gt;
+&lt;p&gt;[X] 经常性 CodeRevice - 苦口婆心，耳提面命？&lt;/p&gt;
+&lt;p&gt;显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…&lt;br&gt;理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。&lt;/p&gt;" />
+    <meta property="og:url" content="https://sunday9787.github.io/2023/04/21/eslint-prettier-stylelint-commitlint/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Edward" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？&lt;/p&gt;
+&lt;p&gt;[X] 文档约定 - 谆谆教导，自求多福？&lt;/p&gt;
+&lt;p&gt;[X] 经常性 CodeRevice - 苦口婆心，耳提面命？&lt;/p&gt;
+&lt;p&gt;显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…&lt;br&gt;理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。&lt;/p&gt;" />
+    <meta name="twitter:title" content="项目工程化之 eslint+prettier+stylelint+commitlint | 机车靓仔"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？&lt;/p&gt;
+&lt;p&gt;[X] 文档约定 - 谆谆教导，自求多福？&lt;/p&gt;
+&lt;p&gt;[X] 经常性 CodeRevice - 苦口婆心，耳提面命？&lt;/p&gt;
+&lt;p&gt;显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…&lt;br&gt;理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？&lt;/p&gt;
+&lt;p&gt;[X] 文档约定 - 谆谆教导，自求多福？&lt;/p&gt;
+&lt;p&gt;[X] 经常性 CodeRevice - 苦口婆心，耳提面命？&lt;/p&gt;
+&lt;p&gt;显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…&lt;br&gt;理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Edward" },
+            "@type": "BlogPosting",
+            "url": "https://sunday9787.github.io/2023/04/21/eslint-prettier-stylelint-commitlint/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://sunday9787.github.iohttps://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg"
+            },
+            "name": "Edward"
+            },
+            "headline": "项目工程化之 eslint+prettier+stylelint+commitlint | 机车靓仔",
+            "datePublished": "2023-04-21T10:52:25.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://sunday9787.github.io/2023/04/21/eslint-prettier-stylelint-commitlint/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-26-12-favicon.ico">
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg" alt="Edward">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>机车靓仔</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">摄影</a>
+                
+                <a href="/friends">友链</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/Sunday9787">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">摄影</a>
+                    
+                    <a href="/friends">友链</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clgqkt3d900031fgs609t8tu7" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      项目工程化之 eslint+prettier+stylelint+commitlint
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-04-21T10:52:25.000Z" itemprop="datePublished">2023-04-21</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>团队多人协同开发项目中困恼团队管理一个很大的问题是：无可避免地会出现每个开发者编码习惯不同、代码风格迥异，为了代码高可用、可维护性， 如何从项目管理上尽量统一和规范代码呢？</p>
+<p>[X] 文档约定 - 谆谆教导，自求多福？</p>
+<p>[X] 经常性 CodeRevice - 苦口婆心，耳提面命？</p>
+<p>显然这种无法实时反馈、延迟解决的方式会造成沟通成本高，往往最终结果还不太理想…<br>理想的方式是在项目工程化层面 借助可灵活配置的工具，自动化 解决。</p>
+<span id="more"></span>
+
+<h2 id="统一编辑器配置"><a href="#统一编辑器配置" class="headerlink" title="统一编辑器配置"></a>统一编辑器配置</h2><p>.editorconfig 配置</p>
+<pre><code class="editorconfig"># http://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Indentation override for js(x), ts(x) and vue files
+[*.&#123;js,jsx,ts,tsx,vue&#125;]
+indent_size = 2
+
+# Indentation override for css related files
+[*.&#123;css,styl,scss,less,sass&#125;]
+indent_size = 2
+
+# Indentation override for html files
+[*.html]
+indent_size = 2
+
+# Trailing space override for markdown file
+[*.md]
+trim_trailing_whitespace = false
+
+# Indentation override for config files
+[*.&#123;json,yml&#125;]
+indent_size = 2
+</code></pre>
+<h2 id="第一步-配置-prettier-格式化规范"><a href="#第一步-配置-prettier-格式化规范" class="headerlink" title="第一步 配置 prettier 格式化规范"></a>第一步 配置 prettier 格式化规范</h2><ol>
+<li>安装 prettier</li>
+</ol>
+<pre><code class="bash">pnpm add prettier -D
+</code></pre>
+<p>解释</p>
+<blockquote>
+<p><code>prettier</code> 是自动格式化代码的关键包 格式化不仅限 js ts css html</p>
+</blockquote>
+<ol start="2">
+<li>配置 prettier<br>配置双引号还是单引号 需不需要 <code>;</code> <code>,</code> 号 详细介绍参考<a target="_blank" rel="noopener" href="https://prettier.io/docs/en/options.html">官网</a></li>
+</ol>
+<pre><code class="json">// `.prettierrc`
+&#123;
+  &quot;semi&quot;: false,
+  &quot;tabWidth&quot;: 2,
+  &quot;trailingComma&quot;: &quot;none&quot;,
+  &quot;printWidth&quot;: 120,
+  &quot;singleQuote&quot;: true,
+  &quot;jsxSingleQuote&quot;: true,
+  &quot;bracketSpacing&quot;: true,
+  &quot;arrowParens&quot;:&quot;avoid&quot;,
+  &quot;htmlWhitespaceSensitivity&quot;: &quot;strict&quot;,
+  &quot;quoteProps&quot;: &quot;as-needed&quot;,
+  &quot;endOfLine&quot;: &quot;lf&quot;
+&#125;
+</code></pre>
+<h2 id="第二步-配置-eslint"><a href="#第二步-配置-eslint" class="headerlink" title="第二步 配置 eslint"></a>第二步 配置 eslint</h2><ol>
+<li>安装 eslint</li>
+</ol>
+<pre><code class="bash">pnpm add eslint eslint-plugin-vue @vue/eslint-config-prettier @vue/eslint-config-standard -D
+</code></pre>
+<p>解释:</p>
+<blockquote>
+<p><code>eslint</code> 是必须要装的懂的都懂<br><code>eslint-plugin-vue</code> 可以让 <code>eslint</code> 检查 <code>vue</code> 文件<br><code>@vue/eslint-config-prettier</code> 兼容 prettier 配置<br><code>@vue/eslint-config-standard</code> vue 标准配置</p>
+</blockquote>
+<ol start="2">
+<li>配置 eslint</li>
+</ol>
+<pre><code class="js">// `.eslintrc.js`
+/**
+ * @type &#123;import(&#39;eslint&#39;).Linter.Config&#125;
+ */
+module.exports = &#123;
+  root: true,
+  env: &#123;
+    browser: true,
+    es6: true
+  &#125;,
+  globals: &#123;
+    uni: &#39;readonly&#39;,
+    wx: &#39;readonly&#39;
+  &#125;,
+  extends: [&#39;plugin:vue/essential&#39;, &#39;@vue/eslint-config-standard&#39;, &#39;@vue/eslint-config-prettier&#39;],
+  plugins: [&#39;prettier&#39;],
+  parserOptions: &#123;
+    ecmaVersion: &#39;latest&#39;
+  &#125;,
+  rules: &#123;
+    &#39;no-console&#39;: process.env.NODE_ENV === &#39;production&#39; ? &#39;warn&#39; : &#39;off&#39;,
+    &#39;no-debugger&#39;: process.env.NODE_ENV === &#39;production&#39; ? &#39;warn&#39; : &#39;off&#39;,
+    &#39;import/extensions&#39;: [&#39;warn&#39;, &#39;never&#39;, &#123; json: &#39;always&#39;, vue: &#39;always&#39; &#125;],
+    camelcase: [&#39;off&#39;]
+  &#125;
+&#125;
+</code></pre>
+<ol start="3">
+<li>在 package.json中添加 lint 脚本</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;scripts&quot;: &#123;
+    &quot;lint&quot;: &quot;eslint --fix&quot;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="第三步-配置-stylelint"><a href="#第三步-配置-stylelint" class="headerlink" title="第三步 配置 stylelint"></a>第三步 配置 stylelint</h2><ol>
+<li>安装 stylelint</li>
+</ol>
+<pre><code class="bash">pnpm add stylelint stylelint-config-prettier stylelint-config-recess-order stylelint-config-recommended-vue stylelint-config-standard-scss -D
+</code></pre>
+<p><strong>解释:</strong></p>
+<blockquote>
+<p><code>stylelint</code> 校验css&#x2F;scss&#x2F;less&#x2F;stylus 代码规范<br><code>stylelint-config-prettier</code> 兼容 prettier 配置<br><code>stylelint-config-recess-order</code> 校验css声明位置顺序<br><code>stylelint-config-recommended-vue</code> vue 推荐配置<br><code>stylelint-config-standard-scss</code> scss 标准配置</p>
+</blockquote>
+<ol start="2">
+<li>配置 stylelint</li>
+</ol>
+<pre><code class="js">// `.stylelintrc.js`
+/**
+ * @type &#123;import(&#39;stylelint&#39;).Config&#125;
+ */
+module.exports = &#123;
+  extends: [
+    &#39;stylelint-config-standard-scss&#39;,
+    &#39;stylelint-config-recommended-vue&#39;,
+    &#39;stylelint-config-recommended-vue/scss&#39;,
+    &#39;stylelint-config-recess-order&#39;,
+    &#39;stylelint-config-prettier&#39;
+  ],
+  rules: &#123;
+    &#39;scss/no-global-function-names&#39;: null,
+    &#39;selector-class-pattern&#39;: null,
+    &#39;scss/dollar-variable-pattern&#39;: [/^\$-&#123;2&#125;/, &#123; ignore: &#39;global&#39; &#125;],
+    // 支持小程序 rpx 单位
+    &#39;unit-no-unknown&#39;: [true, &#123; ignoreUnits: &#39;rpx&#39; &#125;],
+    // 支持自定义标签定义样式
+    &#39;selector-type-no-unknown&#39;: [true, &#123; ignore: [&quot;custom-elements&quot;, &quot;default-namespace&quot;] &#125;]
+  &#125;
+&#125;
+</code></pre>
+<h2 id="第四步-配置-commitlint"><a href="#第四步-配置-commitlint" class="headerlink" title="第四步 配置 commitlint"></a>第四步 配置 commitlint</h2><ol>
+<li>安装 commitlint</li>
+</ol>
+<pre><code class="bash">pnpm add @commitlint/cli @commitlint/config-conventional commitizen cz-conventional-changelog-zh -D
+</code></pre>
+<p><strong>解释:</strong></p>
+<blockquote>
+<p><code>@commitlint/cli</code> 校验 commit<br><code>@commitlint/config-conventional</code> commit 规范配置<br><code>commitizen</code> 交互式命令提交 commit<br><code>cz-conventional-changelog-zh</code> 交互式命令配置</p>
+</blockquote>
+<ol start="2">
+<li>配置 commitlint</li>
+</ol>
+<pre><code class="json">// .commitlintrc
+&#123;
+  &quot;extends&quot;: [
+    &quot;@commitlint/config-conventional&quot;
+  ],
+  &quot;rules&quot;: &#123;
+    &quot;type-enum&quot;: [
+      2,
+      &quot;always&quot;,
+      [
+        &quot;feat&quot;,
+        &quot;fix&quot;,
+        &quot;docs&quot;,
+        &quot;style&quot;,
+        &quot;refactor&quot;,
+        &quot;perf&quot;,
+        &quot;test&quot;,
+        &quot;build&quot;,
+        &quot;ci&quot;,
+        &quot;chore&quot;,
+        &quot;revert&quot;,
+        &quot;conflict&quot;,
+        &quot;font&quot;,
+        &quot;delete&quot;,
+        &quot;stash&quot;
+      ]
+    ]
+  &#125;
+&#125;
+</code></pre>
+<h2 id="第五步-配置-commitizen"><a href="#第五步-配置-commitizen" class="headerlink" title="第五步 配置 commitizen"></a>第五步 配置 commitizen</h2><ol>
+<li>安装 commitizen</li>
+</ol>
+<pre><code class="bash">pnpm add husky commitizen cz-conventional-changelog-zh -D
+</code></pre>
+<p><strong>解释:</strong></p>
+<blockquote>
+<p><code>commitizen</code> 交互式命令提交 commit<br><code>cz-conventional-changelog-zh</code> 交互式命令配置</p>
+</blockquote>
+<ol start="2">
+<li>配置 commitizen</li>
+</ol>
+<pre><code class="json">// .czrc
+&#123;
+  &quot;path&quot;: &quot;cz-conventional-changelog-zh&quot;
+&#125;
+</code></pre>
+<ol start="3">
+<li>在 package.json中添加 commit 脚本</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;scripts&quot;: &#123;
+    &quot;commit&quot;: &quot;git-cz&quot;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="第六步-配置-lint-staged"><a href="#第六步-配置-lint-staged" class="headerlink" title="第六步 配置 lint-staged"></a>第六步 配置 lint-staged</h2><ol>
+<li>安装 lint-staged</li>
+</ol>
+<pre><code class="bash">pnpm add lint-staged -D
+</code></pre>
+<p><strong>解释:</strong><br>lint-stage 配合husky使用 仅仅校验 <code>stage</code> 区代码</p>
+<ol start="2">
+<li>配置 lint-stage</li>
+</ol>
+<pre><code class="json">// .lintstagedrc
+&#123;
+  &quot;*.&#123;js,jsx,ts,tsx,vue&#125;&quot;: [&quot;npm run lint&quot;],
+  &quot;*.&#123;css,scss,sass,less,stylus&#125;&quot;: [&quot;stylelint --fix&quot;],
+  &quot;*.&#123;json&#125;&quot;: [&quot;prettier -w&quot;],
+  &quot;*.&#123;html,vue&#125;&quot;: [&quot;stylelint --custom-syntax postcss-html --fix&quot;]
+&#125;
+</code></pre>
+<h2 id="第七步-配置-husky"><a href="#第七步-配置-husky" class="headerlink" title="第七步 配置 husky"></a>第七步 配置 husky</h2><ol>
+<li>安装 husky</li>
+</ol>
+<pre><code class="bash">pnpm add husky -D
+</code></pre>
+<ol start="2">
+<li>在 package.json中添加 prepare 脚本</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;scripts&quot;: &#123;
+    // 项目 clone 后 自动初始化 husky
+    &quot;prepare&quot;: &quot;husky install&quot;
+  &#125;
+&#125;
+</code></pre>
+<ol start="3">
+<li>配置 husky</li>
+</ol>
+<p>初始化 husky</p>
+<pre><code class="bash">npx husky install
+</code></pre>
+<p>添加 commitlint hooks</p>
+<pre><code class="bash">npx husky add .husky/pre-commit &#39;npx commitlint -e $GIT_PARAMS&#39;
+</code></pre>
+<p>添加 lint hooks</p>
+<pre><code class="bash">npx husky add .husky/pre-commit &#39;npx lint-staged&#39;
+</code></pre>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>大功告成！！！</p>
+<p>不论使用什么编辑器!</p>
+<p>不论是使用 git命令 还是 各种可视化 git 工具 提交！</p>
+<p>统统可以在提交时自动格式化 自动校验 commit 信息！！！</p>
+<p>提交时只需要 执行</p>
+<pre><code class="bash">pnpm commit
+</code></pre>
+<p>自动会出现 交互式命令提交 commit</p>
+<p><img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/photography/2023-04-21-21-11-02-emjio-friday.jpg" alt="今天周五"></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/2020/07/17/webpack-ts-es6-vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">webpack+ts+es6+vue 配置教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=项目工程化之 eslint+prettier+stylelint+commitlint - 机车靓仔&url=https%3A%2F%2Fsunday9787.github.io%2F2023%2F04%2F21%2Feslint-prettier-stylelint-commitlint%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=项目工程化之 eslint+prettier+stylelint+commitlint - 机车靓仔&u=https%3A%2F%2Fsunday9787.github.io%2F2023%2F04%2F21%2Feslint-prettier-stylelint-commitlint%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=项目工程化之 eslint+prettier+stylelint+commitlint - 机车靓仔&url=https://sunday9787.github.io/2023/04/21/eslint-prettier-stylelint-commitlint/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments comments-disqus">
+    <div id="disqus_thread"></div>
+    <script>
+        ;(function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script')
+            s.src =
+                'https://ji-che-jing-zi.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())
+            ;(d.head || d.body).appendChild(s)
+        })()
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pixijs/">pixijs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nextTick/" rel="tag">$nextTick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element-form/" rel="tag">element-form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stylelint/" rel="tag">stylelint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%AE%89%E5%85%A8/" rel="tag">web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/">项目工程化之 eslint+prettier+stylelint+commitlint</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/webpack-ts-es6-vue/">webpack+ts+es6+vue 配置教程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/tips/">dom-tips</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/element-form/">element-form resetFields 与 Vue $nextTick</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/16/target=_blank/">target=&#39;_blank&#39;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            机车靓仔 &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f5283a8f589ab63d2406c1a2ecac6162";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

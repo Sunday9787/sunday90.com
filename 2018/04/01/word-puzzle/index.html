@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>填字游戏 | 机车靓仔</title>
+
+    <meta name="description" content="&lt;p&gt;起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。&lt;br&gt;UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 &lt;a href=&#34;https://www.pixijs.com/&#34;&gt;pixijs&lt;/a&gt;，利用闲暇时间重写了一遍，下面是源码&lt;/p&gt;">
+    <meta name="keywords" content="JS TS ES6 Typescript Vue全家桶">
+
+    
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "填字游戏 | 机车靓仔"  />
+    <meta property="og:description" content= "&lt;p&gt;起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。&lt;br&gt;UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 &lt;a href=&#34;https://www.pixijs.com/&#34;&gt;pixijs&lt;/a&gt;，利用闲暇时间重写了一遍，下面是源码&lt;/p&gt;" />
+    <meta property="og:url" content="https://sunday9787.github.io/2018/04/01/word-puzzle/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Edward" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。&lt;br&gt;UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 &lt;a href=&#34;https://www.pixijs.com/&#34;&gt;pixijs&lt;/a&gt;，利用闲暇时间重写了一遍，下面是源码&lt;/p&gt;" />
+    <meta name="twitter:title" content="填字游戏 | 机车靓仔"/>
+    <meta name="twitter:description" content="&lt;p&gt;起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。&lt;br&gt;UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 &lt;a href=&#34;https://www.pixijs.com/&#34;&gt;pixijs&lt;/a&gt;，利用闲暇时间重写了一遍，下面是源码&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。&lt;br&gt;UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 &lt;a href=&#34;https://www.pixijs.com/&#34;&gt;pixijs&lt;/a&gt;，利用闲暇时间重写了一遍，下面是源码&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Edward" },
+            "@type": "BlogPosting",
+            "url": "https://sunday9787.github.io/2018/04/01/word-puzzle/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://sunday9787.github.iohttps://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg"
+            },
+            "name": "Edward"
+            },
+            "headline": "填字游戏 | 机车靓仔",
+            "datePublished": "2018-04-01T08:57:30.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://sunday9787.github.io/2018/04/01/word-puzzle/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-26-12-favicon.ico">
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg" alt="Edward">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>机车靓仔</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">摄影</a>
+                
+                <a href="/friends">友链</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/Sunday9787">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">摄影</a>
+                    
+                    <a href="/friends">友链</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clgqkt3dd000b1fgs2grd5ffb" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      填字游戏
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2018-04-01T08:57:30.000Z" itemprop="datePublished">2018-04-01</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/pixijs/">pixijs</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>起初是公司一个小游戏，从立项到开发完成大概5天吧，因为时间有些赶，最开始写的并不是很好，画字格用的是 table。<br>UI上面小小出入，跟一个朋友说做这个项目后，朋友建议我用 <a target="_blank" rel="noopener" href="https://www.pixijs.com/">pixijs</a>，利用闲暇时间重写了一遍，下面是源码</p>
+<span id="more"></span>
+
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><pre><code class="html">&lt;p class=&quot;time-container&quot;&gt;&lt;time id=&quot;time&quot;&gt;00:00&lt;/time&gt;&lt;/p&gt;
+&lt;div class=&quot;game-container&quot;&gt;
+  &lt;canvas id=&quot;game&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;mask&quot;&gt;初始化中...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tips-container&quot;&gt;
+  &lt;p class=&quot;fl&quot;&gt;提示：&lt;/p&gt;
+  &lt;p id=&quot;tips&quot; class=&quot;oh&quot;&gt;赫拉利将告诉你人类是如何从动物变成上帝&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;input-container&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;game-input&quot; id=&quot;game-input&quot; /&gt;
+  &lt;a href=&quot;javascript:;&quot; class=&quot;game-input-send&quot;&gt;确认&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><pre><code class="js">require([&quot;zepto&quot;, &quot;pixi&quot;, &quot;modal&quot;], function($, pixi, modal) &#123;
+  // 游戏基础配置
+  modal.pupup(&#123;
+    content: `
+      &lt;!-- &lt;img src=&quot;http://sunday90.cn/upload/2500872220b52768dd9c4e237579f8bc.jpg&quot; /&gt; --&gt;
+      &lt;a href=&quot;javascript:;&quot; class=&quot;btn start-btn&quot;&gt;开始计时&lt;/a&gt;
+    `,
+    mask: true,
+    success: function(layero) &#123;
+      const that = this;
+      $(layero).on(&quot;click&quot;, &quot;.start-btn&quot;, function(e) &#123;
+        console.log(this);
+        console.log(&quot;开始游戏&quot;);
+        let time = document.querySelector(&quot;#time&quot;);
+        Countdown.start(0.2, time, function(time) &#123;
+          console.log(time);
+        &#125;);
+        that.close();
+      &#125;);
+    &#125;
+  &#125;);
+
+  const ua = window.navigator.userAgent.toLocaleLowerCase();
+  const device = &#123;
+    ios: /iphone/g.test(ua),
+    android: /android/g.test(ua)
+  &#125;;
+
+  const unit_size = &#123; width: 50, height: 50 &#125;;
+  const table = &#123; x: 10, y: 10 &#125;;
+  const gameContainer = document.querySelector(&quot;.game-container&quot;);
+  const mask = document.querySelector(&quot;.mask&quot;);
+  const input = document.querySelector(&quot;#game-input&quot;);
+  const tipsEl = document.querySelector(&quot;#tips&quot;);
+  const fontStyle = new PIXI.TextStyle(&#123;
+    fontFamily:
+      &#39;-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif&#39;,
+    fontSize: 28,
+    fontWeight: &quot;500&quot;,
+    fill: [&quot;#333&quot;] // gradient
+  &#125;);
+  const time = document.querySelector(&quot;#time&quot;);
+  // 需要渲染的方格二维数组
+  const unit_data = [
+    [
+      &#123; y: 0, x: 1 &#125;,
+      &#123; y: 0, x: 5 &#125;,
+      &#123; y: 0, x: 6 &#125;,
+      &#123; y: 0, x: 7 &#125;,
+      &#123; y: 0, x: 8 &#125;
+    ],
+    [
+      &#123; y: 1, x: 1 &#125;,
+      &#123; y: 1, x: 3 &#125;,
+      &#123; y: 1, x: 8 &#125;
+    ],
+    [
+      &#123; y: 2, x: 1 &#125;,
+      &#123; y: 2, x: 2 &#125;,
+      &#123; y: 2, x: 3 &#125;,
+      &#123; y: 2, x: 4 &#125;,
+      &#123; y: 2, x: 6 &#125;,
+      &#123; y: 2, x: 7 &#125;,
+      &#123; y: 2, x: 8 &#125;
+    ],
+    [
+      &#123; y: 3, x: 3 &#125;,
+      &#123; y: 3, x: 7 &#125;
+    ],
+    [
+      &#123; y: 4, x: 0 &#125;,
+      &#123; y: 4, x: 1 &#125;,
+      &#123; y: 4, x: 2 &#125;,
+      &#123; y: 4, x: 3 &#125;,
+      &#123; y: 4, x: 6 &#125;,
+      &#123; y: 4, x: 7 &#125;,
+      &#123; y: 4, x: 8 &#125;,
+      &#123; y: 4, x: 9 &#125;
+    ],
+    [
+      &#123; y: 5, x: 1 &#125;,
+      &#123; y: 5, x: 7 &#125;
+    ],
+    [
+      &#123; y: 6, x: 1 &#125;,
+      &#123; y: 6, x: 4 &#125;,
+      &#123; y: 6, x: 5 &#125;,
+      &#123; y: 6, x: 6 &#125;,
+      &#123; y: 6, x: 7 &#125;
+    ],
+    [
+      &#123; y: 7, x: 1 &#125;,
+      &#123; y: 7, x: 4 &#125;
+    ],
+    [
+      &#123; y: 8, x: 1 &#125;,
+      &#123; y: 8, x: 2 &#125;,
+      &#123; y: 8, x: 3 &#125;,
+      &#123; y: 8, x: 4 &#125;
+    ],
+    [
+      &#123; y: 9, x: 0 &#125;,
+      &#123; y: 9, x: 1 &#125;
+    ]
+  ];
+
+  // tips
+  const tips = &#123;
+    &quot;21222324&quot;: &quot;赫拉利将告诉你人类是如何从动物变成上帝&quot;,
+    &quot;40414243&quot;: &quot;对两次世界大战的哲学思考，直面存在的危机&quot;,
+    &quot;81828384&quot;: &quot;看萧红写的这书名还以为是一条河的历史&quot;,
+    &quot;9091&quot;: &quot;鲁迅先生的短篇小说集，里面有《狂人日记》&quot;,
+    &quot;64656667&quot;: &quot;天下合久必分，分久必合&quot;,
+    &quot;46474849&quot;: &quot;与达尔文《物种起源论》及哥白尼《天体运行论》并称为人类三大思想革命的经典之作&quot;,
+    &quot;262728&quot;: &quot;三位艺术天才的非凡人生，罗曼罗兰著&quot;,
+    &quot;5678&quot;: &quot;证明你上过中学的又一个有力佐证，冰心奶奶如是说&quot;,
+    &quot;11121&quot;: &quot;我们都是故事外的人——阿尔贝·加缪&quot;,
+    &quot;13233343&quot;: &quot;一种追求简单生活的价值观&quot;,
+    &quot;415161718191&quot;: &quot;余华手下一本关于记忆的长篇小说&quot;,
+    &quot;647484&quot;: &quot;走遍万水千山，泪尽撒哈拉&quot;,
+    &quot;2737475767&quot;: &quot;达康书记别低头，皇冠会掉&quot;,
+    &quot;81828&quot;: &quot;中国四大名著之一&quot;
+  &#125;;
+
+  // 创建 12 * 8 的方格
+  const unit = []; // 所有单元格 二维数组
+  const unit_block = []; // 需要渲染的单元格
+  const selectUnit = &#123; isRow: true, unit: [] &#125;; // 选中后的单元格
+
+  // 创建材质
+  const unitTexture = PIXI.Texture.fromImage(&quot;./assets/images/unit.svg&quot;);
+  const unitBlockTexture = PIXI.Texture.fromImage(
+    &quot;./assets/images/unit-block.svg&quot;
+  );
+  const unitBlockActiveTexture = PIXI.Texture.fromImage(
+    &quot;./assets/images/unit-block-active.svg&quot;
+  );
+
+  // 创建舞台
+  const container = new PIXI.Container();
+  container.x = 0;
+  container.y = 0;
+
+  // 倒计时
+  const Countdown = &#123;
+    down(callBack, success) &#123;
+      clearInterval(this.Interval);
+      callBack(
+        success === true ? this.countTime * 60 - this.time / 1000 : &quot;时间结束&quot;
+      );
+    &#125;,
+    check(v) &#123;
+      if (v &lt; 10) &#123;
+        return &quot;0&quot; + v;
+      &#125; else &#123;
+        return v;
+      &#125;
+    &#125;,
+    start(time, el, callBack) &#123;
+      this.countTime = time;
+      var endDate = new Date().getTime() + time * 60 * 1000;
+      this.Interval = setInterval(() =&gt; &#123;
+        this.time = endDate - new Date().getTime();
+        if (this.time &lt;= 0) this.down(callBack);
+        var m = parseInt((this.time / 1000 / 60) % 60, 10);
+        var s = parseInt((this.time / 1000) % 60, 10);
+        var ms = parseInt(this.time % 1000, 10);
+        el.innerText = this.check(m) + &quot;:&quot; + this.check(s);
+      &#125;, 1);
+    &#125;
+  &#125;;
+
+  // es7
+  setTimeout(() =&gt; &#123;
+    initGame();
+  &#125;, 300);
+
+  async function initGame() &#123;
+    await (() =&gt; &#123;
+      return new Promise((resolve, reject) =&gt; &#123;
+        mask.classList.add(&quot;mask-in&quot;);
+        setTimeout(() =&gt; &#123;
+          resolve();
+        &#125;, 300);
+      &#125;);
+    &#125;)();
+
+    // 创建画布
+    const app = new PIXI.Application(
+      table.x * unit_size.width,
+      table.y * unit_size.height,
+      &#123;
+        backgroundColor: 0xf1c16c,
+        antialias: true,
+        view: document.querySelector(&quot;#game&quot;),
+        resolution: window.devicePixelRatio
+      &#125;
+    );
+    app.stage.interactive = true;
+    app.stage.addChild(container);
+
+    // 绘制表格
+    creatTable(table, unit_data, async function() &#123;
+      await (() =&gt; &#123;
+        return new Promise((resolve, reject) =&gt; &#123;
+          setTimeout(() =&gt; &#123;
+            mask.innerText = &quot;初始化完成,祝您玩的开心&quot;;
+            resolve();
+          &#125;, 1000);
+        &#125;);
+      &#125;)();
+
+      await setTimeout(() =&gt; &#123;
+        mask.classList.add(&quot;mask-out&quot;);
+        console.log(&quot;初始化完成&quot;);
+      &#125;, 500);
+    &#125;);
+  &#125;
+
+  function creatTable(table, block, callBack) &#123;
+    let row = table.x;
+    let col = table.y;
+    let index = 0;
+    let width = unit_size.width * table.x * unit_size.width;
+    let height = unit_size.width * table.y * unit_size.height;
+
+    let i = 0;
+    while (i &lt; row) &#123;
+      unit.push([]);
+      let k = 0;
+      while (k &lt; col) &#123;
+        let sprite = new PIXI.Sprite(unitTexture);
+        let unitContainer = new PIXI.Container();
+        let x = (k * unit_size.width) % width;
+        let y = (i * unit_size.height) % height;
+        sprite.interactive = true;
+        sprite.isDown = false;
+        sprite.isEmpty = true;
+        sprite.anchor.set(0, 0);
+        sprite.width = unit_size.width;
+        sprite.height = unit_size.height;
+        sprite.index = index++; // 唯一id
+        unitContainer.width = unit_size.width;
+        unitContainer.height = unit_size.height;
+        unitContainer.x = x;
+        unitContainer.y = y;
+        sprite.x = 0;
+        sprite.y = 0;
+        sprite.X = x / unit_size.width; // x坐标
+        sprite.Y = y / unit_size.height; // y 坐标
+        unit[i].push(sprite);
+        unitContainer.addChild(sprite);
+        container.addChild(unitContainer);
+        k++;
+      &#125;
+      i++;
+    &#125;
+
+    // 添加事件
+    for (let row = 0, uLen = unit.length; row &lt; uLen; row++) &#123;
+      add: for (let col = 0, len = unit[row].length; col &lt; len; col++) &#123;
+        // console.log(unit[row][col].x / unit_size.width, unit[row][col].y / unit_size.height);
+        for (let k = 0, fLen = block[row].length; k &lt; fLen; k++) &#123;
+          if (block[row][k].x === col &amp;&amp; block[row][k].y === row) &#123;
+            unit[row][col].isEmpty = false;
+            unit[row][col].texture = unitBlockTexture;
+            unit[row][col].buttonMode = true;
+            unit[row][col].on(&quot;tap&quot;, onClick);
+            unit_block.push(unit[row][col]);
+            continue add;
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+    // 绘制边框
+    drawBorder(table, unit_data, container);
+    typeof callBack === &quot;function&quot; ? callBack() : void 0;
+  &#125;
+
+  function onClick() &#123;
+    input.focus();
+    const X = this.X,
+      Y = this.Y;
+    let cols = [],
+      rows = unit[Y];
+    // 重置默认
+    reset(unit_block);
+
+    this.isDown = !this.isDown;
+    unit.forEach(row =&gt; &#123;
+      if (row[X].X === X) cols.push(row[X]);
+    &#125;);
+
+    if (this.selectRow !== undefined) &#123;
+      if (this.isDown &amp;&amp; this.selectRow) &#123;
+        renderCol(X, Y, cols, rows);
+      &#125; else &#123;
+        renderRow(X, Y, rows, cols);
+      &#125;
+    &#125; else &#123;
+      if (this.isDown) &#123;
+        renderRow(X, Y, rows, cols);
+      &#125; else &#123;
+        renderCol(X, Y, cols, rows);
+      &#125;
+    &#125;
+
+    let key = selectUnit.unit.reduce((total, unit) =&gt; &#123;
+      return total + unit.index.toString();
+    &#125;, &quot;&quot;);
+    tipsEl.innerText = tips[key];
+    console.log(key);
+  &#125;
+
+  // 渲染行
+  function renderRow(x, y, row, col) &#123;
+    let unit = aroundUnit(row, x, y, true);
+    let len = unit.length;
+    // 如果临近元素为为空 (1 代表自身) 渲染列
+    if (len &lt;= 1) &#123;
+      renderCol(x, y, col, row);
+      return;
+    &#125;
+
+    unit.forEach(item =&gt; &#123;
+      item.texture = unitBlockActiveTexture;
+      item.selectRow = true;
+    &#125;);
+
+    let storUnit = stor(unit);
+    selectUnit.isRow = true;
+    selectUnit.unit = storUnit;
+  &#125;
+
+  // 渲染列
+  function renderCol(x, y, col, row) &#123;
+    let unit = aroundUnit(col, x, y, false);
+    let len = unit.length;
+    // 如果临近元素为空 (1 代表自身) 渲染行
+    if (len &lt;= 1) &#123;
+      renderRow(x, y, row, col, true);
+      return;
+    &#125;
+    unit.forEach(item =&gt; &#123;
+      item.texture = unitBlockActiveTexture;
+      item.selectRow = false;
+    &#125;);
+
+    let storUnit = stor(unit);
+    selectUnit.isRow = false;
+    selectUnit.unit = storUnit;
+  &#125;
+
+  // 获取相邻元素  arry 一维数组 行 或者 列
+  function aroundUnit(arry, x, y, selectRow) &#123;
+    let n = selectRow ? x : y;
+    let len = arry.length;
+    let unit = [];
+    for (let i = 0; i &lt; len; i++) &#123;
+      if (arry[n + i] &amp;&amp; arry[n + i].isEmpty) break;
+      if (arry[n + i]) &#123;
+        unit.push(arry[n + i]);
+      &#125;
+    &#125;
+
+    for (let i = 1; i &lt; len; i++) &#123;
+      if (arry[n - i] &amp;&amp; arry[n - i].isEmpty) break;
+      if (arry[n - i]) unit.push(arry[n - i]);
+    &#125;
+    return unit;
+  &#125;
+
+  // 重置视图
+  function reset(unit) &#123;
+    unit.forEach(item =&gt; &#123;
+      item.isDown = false;
+      item.texture = unitBlockTexture;
+    &#125;);
+  &#125;
+
+  // 排序
+  function stor(unit) &#123;
+    function compare(property) &#123;
+      return function(a, b) &#123;
+        var value1 = a[property];
+        var value2 = b[property];
+        return value1 - value2;
+      &#125;;
+    &#125;
+    return unit.sort(compare(&quot;index&quot;));
+  &#125;
+
+  function drawBorder(table, block, ctx) &#123;
+    let row = table.x,
+      col = table.y;
+    let containerWidth = row * unit_size.width,
+      containerHeight = col * unit_size.height;
+    let startY = unit_size.height,
+      startX = unit_size.width;
+    drawLine(
+      &#123; width: 1, color: 0xb38743, alpha: 1 &#125;,
+      ctx,
+      containerWidth,
+      containerHeight,
+      startX,
+      startY,
+      row,
+      col
+    );
+  &#125;
+
+  // 绘制线条
+  function drawLine(lineStyle, ctx, width, height, X, Y, col, row) &#123;
+    let i = 1,
+      n = 1;
+    const graphics = new PIXI.Graphics();
+    // 绘制行
+    while (i &lt; row) &#123;
+      graphics.beginFill();
+      graphics.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
+      graphics.moveTo(0, Y * i);
+      graphics.lineTo(width, Y * i);
+      graphics.endFill();
+      ctx.addChild(graphics);
+      i++;
+    &#125;
+    // 绘制列
+    while (n &lt; col) &#123;
+      graphics.beginFill();
+      graphics.lineStyle(lineStyle.width, lineStyle.color, lineStyle.alpha);
+      graphics.moveTo(X * n, 0);
+      graphics.lineTo(X * n, height);
+      graphics.endFill();
+      ctx.addChild(graphics);
+      n++;
+    &#125;
+  &#125;
+
+  // 解决键盘遮住 输入框
+
+  $(document).on(&quot;focus&quot;, &quot;input&quot;, function(e) &#123;
+    setTimeout(
+      () =&gt; &#123;
+        // this.scrollIntoViewIfNeeded(false);
+        this.scrollIntoView(&#123;
+          block: &quot;end&quot;,
+          behavior: &quot;smooth&quot;
+        &#125;);
+      &#125;,
+      device.ios ? 200 : 0
+    );
+  &#125;);
+
+  // 输入
+  $(&quot;.input-container&quot;).on(&quot;click&quot;, &quot;.game-input-send&quot;, async function(e) &#123;
+    let value = $.trim(input.value);
+    if (value.length &gt; selectUnit.unit.length) &#123;
+      modal.toast(`最大可输入字数为$&#123;selectUnit.unit.length&#125;个`);
+      return false;
+    &#125;
+    let param = selectUnit.unit.map((item, index) =&gt; &#123;
+      return &#123;
+        value: value.charAt(index),
+        x: item.X,
+        y: item.Y,
+        index: item.index
+      &#125;;
+    &#125;);
+    console.log(param);
+    let flag = await new Promise((resolve, reject) =&gt; &#123;
+      $.ajax(&#123;
+        async: true,
+        type: &quot;post&quot;,
+        url: &quot;./game.php&quot;,
+        data: &#123; data: param &#125;,
+        success: function(data) &#123;
+          if (data.status === &quot;0&quot;) &#123;
+            modal.toast(&quot;填错了哦&quot;);
+            input.value = &quot;&quot;;
+            resolve(false);
+          &#125; else &#123;
+            resolve(true);
+          &#125;
+        &#125;,
+        error: function(err) &#123;
+          console.log(err);
+        &#125;
+      &#125;);
+    &#125;);
+
+    if (!flag) return;
+
+    [...value].forEach((chart, index) =&gt; &#123;
+      if (selectUnit.unit[index].parent.children.length &gt; 1) &#123;
+        selectUnit.unit[index].parent.children.forEach((sprite, i) =&gt; &#123;
+          if (sprite.type === &quot;text&quot;) sprite.text = chart;
+        &#125;);
+        return false;
+      &#125;
+
+      let richText = new PIXI.Text(chart, fontStyle);
+      richText.type = &quot;text&quot;;
+      richText.anchor.set(0.5);
+      richText.x = selectUnit.unit[index].parent.width / 2;
+      richText.y = selectUnit.unit[index].parent.height / 2;
+      selectUnit.unit[index].parent.addChild(richText);
+      // container.addChild(richText);
+    &#125;);
+    input.value = &quot;&quot;;
+  &#125;);
+&#125;);
+</code></pre>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p>后端就比较容易了,前端传每一个字格 id 以及值，后端验证字格 id 值 就行了</p>
+<pre><code class="php">/*
+* @Author: Edward
+* @Date: 2018-05-02 23:27:31
+* @Last Modified by: Edward
+* @Email: 809537981@qq.com
+* @Last Modified time: 2018-05-03 16:26:08
+*/
+
+header(&#39;Content-Type:application/json; charset=utf-8&#39;);
+
+$post = $_POST[&#39;data&#39;];
+
+$data = [
+  &#39;1&#39; =&gt; &#39;局&#39;,
+  &#39;11&#39; =&gt; &#39;外&#39;,
+  &#39;5&#39; =&gt; &#39;繁&#39;,
+  &#39;6&#39; =&gt; &#39;星&#39;,
+  &#39;7&#39; =&gt; &#39;春&#39;,
+  &#39;8&#39; =&gt; &#39;水&#39;,
+  &#39;13&#39; =&gt; &#39;极&#39;,
+  &#39;33&#39; =&gt; &#39;主&#39;,
+  &#39;18&#39; =&gt; &#39;浒&#39;,
+  &#39;21&#39; =&gt; &#39;人&#39;,
+  &#39;22&#39; =&gt; &#39;类&#39;,
+  &#39;23&#39; =&gt; &#39;简&#39;,
+  &#39;24&#39; =&gt; &#39;史&#39;,
+  &#39;28&#39; =&gt; &#39;传&#39;,
+  &#39;27&#39; =&gt; &#39;人&#39;,
+  &#39;26&#39; =&gt; &#39;名&#39;,
+  &#39;37&#39; =&gt; &#39;民&#39;,
+  &#39;46&#39; =&gt; &#39;梦&#39;,
+  &#39;47&#39; =&gt; &#39;的&#39;,
+  &#39;57&#39; =&gt; &#39;名&#39;,
+  &#39;48&#39; =&gt; &#39;解&#39;,
+  &#39;49&#39; =&gt; &#39;析&#39;,
+  &#39;64&#39; =&gt; &#39;三&#39;,
+  &#39;65&#39; =&gt; &#39;国&#39;,
+  &#39;66&#39; =&gt; &#39;演&#39;,
+  &#39;67&#39; =&gt; &#39;义&#39;,
+  &#39;67&#39; =&gt; &#39;义&#39;,
+  &#39;74&#39; =&gt; &#39;毛&#39;,
+  &#39;81&#39; =&gt; &#39;呼&#39;,
+  &#39;82&#39; =&gt; &#39;兰&#39;,
+  &#39;83&#39; =&gt; &#39;河&#39;,
+  &#39;84&#39; =&gt; &#39;传&#39;,
+  &#39;40&#39; =&gt; &#39;存&#39;,
+  &#39;41&#39; =&gt; &#39;在&#39;,
+  &#39;42&#39; =&gt; &#39;主&#39;,
+  &#39;43&#39; =&gt; &#39;义&#39;,
+  &#39;51&#39; =&gt; &#39;细&#39;,
+  &#39;61&#39; =&gt; &#39;雨&#39;,
+  &#39;71&#39; =&gt; &#39;中&#39;,
+  &#39;81&#39; =&gt; &#39;呼&#39;,
+  &#39;90&#39; =&gt; &#39;呐&#39;,
+  &#39;91&#39; =&gt; &#39;喊&#39;,
+];
+
+$flag = false;
+
+foreach($post as $index =&gt; $arry) &#123;
+  if ($data[$arry[&#39;index&#39;]] == $arry[&#39;value&#39;]) &#123;
+    $flag = true;
+  &#125; else &#123;
+    $flag = false;
+  &#125;
+&#125;
+
+if ($flag) &#123;
+  echo &#39;&#123;&quot;status&quot;: &quot;1&quot;&#125;&#39;;
+&#125; else &#123;
+  echo &#39;&#123;&quot;status&quot;: &quot;0&quot;&#125;&#39;;
+&#125;
+</code></pre>
+<p>收工</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2019/09/16/target=_blank/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          target=&#39;_blank&#39;
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=填字游戏 - 机车靓仔&url=https%3A%2F%2Fsunday9787.github.io%2F2018%2F04%2F01%2Fword-puzzle%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=填字游戏 - 机车靓仔&u=https%3A%2F%2Fsunday9787.github.io%2F2018%2F04%2F01%2Fword-puzzle%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=填字游戏 - 机车靓仔&url=https://sunday9787.github.io/2018/04/01/word-puzzle/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments comments-disqus">
+    <div id="disqus_thread"></div>
+    <script>
+        ;(function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script')
+            s.src =
+                'https://ji-che-jing-zi.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())
+            ;(d.head || d.body).appendChild(s)
+        })()
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pixijs/">pixijs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nextTick/" rel="tag">$nextTick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element-form/" rel="tag">element-form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stylelint/" rel="tag">stylelint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%AE%89%E5%85%A8/" rel="tag">web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/">项目工程化之 eslint+prettier+stylelint+commitlint</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/webpack-ts-es6-vue/">webpack+ts+es6+vue 配置教程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/tips/">dom-tips</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/element-form/">element-form resetFields 与 Vue $nextTick</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/16/target=_blank/">target=&#39;_blank&#39;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            机车靓仔 &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f5283a8f589ab63d2406c1a2ecac6162";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
