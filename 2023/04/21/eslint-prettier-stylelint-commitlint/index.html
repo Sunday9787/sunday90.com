@@ -356,9 +356,9 @@ module.exports = &#123;
 </code></pre>
 <p><strong>解释:</strong></p>
 <blockquote>
-<p><code>stylelint</code> 校验css&#x2F;scss&#x2F;less&#x2F;stylus 代码规范<br><code>stylelint-config-prettier</code> 兼容 prettier 配置<br><code>stylelint-config-recess-order</code> 校验css声明位置顺序<br><code>stylelint-config-recommended-vue</code> vue 推荐配置<br><code>stylelint-config-standard-scss</code> scss 标准配置</p>
+<p><code>stylelint</code> 校验css&#x2F;scss&#x2F;less&#x2F;stylus 代码规范<br><del><code>stylelint-config-prettier</code> 兼容 prettier 配置 将 stylelint 发现的问题 交给 prettier 格式化处理</del> <strong>依赖 stylelint v15 以下</strong><br><code>stylelint-prettier</code> 将 stylelint 发现的问题 交给 prettier 格式化处理 <strong>依赖 stylelint v15 以上</strong><br><code>stylelint-config-recess-order</code> 校验css声明位置顺序<br><code>stylelint-config-recommended-vue</code> vue 推荐配置 且 可以检测 .vue 文件<br><code>stylelint-config-recommended-scss</code> scss 推荐配置</p>
 </blockquote>
-<ol start="2">
+<ol>
 <li>配置 stylelint</li>
 </ol>
 <pre><code class="js">// `.stylelintrc.js`
@@ -367,12 +367,11 @@ module.exports = &#123;
  */
 module.exports = &#123;
   extends: [
-    &#39;stylelint-config-standard-scss&#39;,
-    &#39;stylelint-config-recommended-vue&#39;,
+    &#39;stylelint-config-recommended-scss&#39;,
     &#39;stylelint-config-recommended-vue/scss&#39;,
-    &#39;stylelint-config-recess-order&#39;,
-    &#39;stylelint-config-prettier&#39;
+    &#39;stylelint-config-recess-order&#39;
   ],
+  plugins: [&#39;stylelint-prettier&#39;],
   rules: &#123;
     &#39;scss/no-global-function-names&#39;: null,
     &#39;selector-class-pattern&#39;: null,
@@ -529,6 +528,15 @@ module.exports = &#123;
     
 <nav class="article-nav">
   
+    <a href="/2023/05/07/code-style/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          前端开发规范
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/07/17/webpack-ts-es6-vue/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
@@ -634,6 +642,14 @@ module.exports = &#123;
       <ul>
         
           <li>
+            <a href="/2023/05/07/vscode-plugin/">前端 Vscode 常用插件</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/07/code-style/">前端开发规范</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/">项目工程化之 eslint+prettier+stylelint+commitlint</a>
           </li>
         
@@ -643,14 +659,6 @@ module.exports = &#123;
         
           <li>
             <a href="/2020/07/05/tips/">dom-tips</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/07/element-form/">element-form resetFields 与 Vue $nextTick</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/16/target=_blank/">target=&#39;_blank&#39;</a>
           </li>
         
       </ul>

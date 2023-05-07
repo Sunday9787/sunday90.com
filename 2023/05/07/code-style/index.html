@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>前端开发规范 | 机车靓仔</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：&lt;/p&gt;
+&lt;p&gt;缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；&lt;br&gt;随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；&lt;br&gt;即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。&lt;/p&gt;">
+    <meta name="keywords" content="JS TS ES6 Typescript Vue全家桶">
+
+    
+
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "前端开发规范 | 机车靓仔"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：&lt;/p&gt;
+&lt;p&gt;缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；&lt;br&gt;随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；&lt;br&gt;即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。&lt;/p&gt;" />
+    <meta property="og:url" content="https://sunday9787.github.io/2023/05/07/code-style/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Edward" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：&lt;/p&gt;
+&lt;p&gt;缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；&lt;br&gt;随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；&lt;br&gt;即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。&lt;/p&gt;" />
+    <meta name="twitter:title" content="前端开发规范 | 机车靓仔"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：&lt;/p&gt;
+&lt;p&gt;缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；&lt;br&gt;随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；&lt;br&gt;即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：&lt;/p&gt;
+&lt;p&gt;缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；&lt;br&gt;随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；&lt;br&gt;即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Edward" },
+            "@type": "BlogPosting",
+            "url": "https://sunday9787.github.io/2023/05/07/code-style/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://sunday9787.github.iohttps://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg"
+            },
+            "name": "Edward"
+            },
+            "headline": "前端开发规范 | 机车靓仔",
+            "datePublished": "2023-05-07T08:30:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://sunday9787.github.io/2023/05/07/code-style/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-26-12-favicon.ico">
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://static-1256180570.cos.ap-nanjing.myqcloud.com/image/2023-03-08-21-23-17-Yamaha-motorcycle-racing_1920x1200.jpg" alt="Edward">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>机车靓仔</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">摄影</a>
+                
+                <a href="/friends">友链</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/Sunday9787">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">摄影</a>
+                    
+                    <a href="/friends">友链</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clhd86dco00009ggsak4qdimb" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      前端开发规范
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-05-07T08:30:00.000Z" itemprop="datePublished">2023-05-07</time>
+</div>
+
+            
+
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>规范不是强制性的，对代码的编写和程序的运行不会有致命的问题，但是没有规范会有一系列的问题，比如：</p>
+<p>缺乏规范，第一个问题就是团队编码风格不一，增加了成员之间代码的阅读成本，加大了团队协作成本和维护成本；<br>随着团队人员的变化（多人开发一个应用，或者应用更换开发人员），如果缺乏规范，项目可能会变得一团糟，甚至失控；<br>即便是个人开发，规范也是需要的，当把项目转给其他人的时候，如果有规范的话，会大大降低阅读成本。</p>
+<span id="more"></span>
+
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><blockquote>
+<p>基本命名准则</p>
+<ul>
+<li><p>贴合业务</p>
+</li>
+<li><p>简洁、语义化，能够英文释义</p>
+</li>
+<li><p>始终保持一种命名方法。项目中可能多人协同开发，而命名方式有多种都是可行的，进行开发时应保持原来代码命名风格</p>
+</li>
+<li><p>书写时 名词在前 动词形容词在后</p>
+<p>例如：productAdd、productDel</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="项目命名"><a href="#项目命名" class="headerlink" title="项目命名"></a>项目命名</h3><p>命名使用 snake_case 规则（全部采用小写方式，以下划线分隔）</p>
+<p>正例：h5_station_company</p>
+<p>反例：H5_STATION_COMPANY &#x2F; h5StationCompany</p>
+<h3 id="目录命名"><a href="#目录命名" class="headerlink" title="目录命名"></a>目录命名</h3><p>命名使用 kebab-case 规则（全部采用小写方式， 以中划线分隔），有复数结构时，要采用复数命名法， 缩写不用复数）</p>
+<p>注意：</p>
+<p>公共组件以及页面入口，需要单独命名 xxxx&#x2F;index.vue</p>
+<p>UNI-APP 页面入口，需要文件名跟文件夹名一致（pages&#x2F;user&#x2F;user.vue）</p>
+<p>正例：</p>
+<p>src&#x2F;views&#x2F;user&#x2F;index.vue</p>
+<p>反例：</p>
+<p>src&#x2F;views&#x2F;user.vue</p>
+<p><strong>【特殊】</strong>项目中的 components 中的组件目录，使用 kebab-case命名</p>
+<p>正例： components&#x2F;head-search&#x2F;page-loading&#x2F;index.vue</p>
+<p>反例：components&#x2F;headSearch&#x2F;pageLoading&#x2F;index.vue</p>
+<p><strong>【特殊】</strong>项目中的 其他目录也应使用 kebab-case命名</p>
+<p>正例： src&#x2F;pages&#x2F;layout-header&#x2F;index.vue</p>
+<p>反例：src&#x2F;pages&#x2F;layoutHeader&#x2F;index.vue</p>
+<h3 id="JS、CSS、SCSS、HTML、PNG-等文件命名"><a href="#JS、CSS、SCSS、HTML、PNG-等文件命名" class="headerlink" title="JS、CSS、SCSS、HTML、PNG 等文件命名"></a>JS、CSS、SCSS、HTML、PNG 等文件命名</h3><p>命名使用 kebab-case 规则（全部采用小写方式，以中线分隔）</p>
+<p>正例： src&#x2F;images&#x2F;layout-header.jpg</p>
+<p>反例：src&#x2F;images&#x2F;layoutHeader.jpg</p>
+<p><strong>【特殊】</strong>js&#x2F;ts 文件</p>
+<p>正例： src&#x2F;utils&#x2F;eventBus.js</p>
+<p>反例：src&#x2F;utils&#x2F;eventbus.js</p>
+<p>不推荐：src&#x2F;utils&#x2F;event-bus.js</p>
+<h3 id="命名严谨性"><a href="#命名严谨性" class="headerlink" title="命名严谨性"></a>命名严谨性</h3><p>代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。 说明：正确的 英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用</p>
+<p>正例：rmb&#x2F;shanghai 等国际通用的名称，可视同英文</p>
+<p>反例： Jiage [价格] &#x2F; getShujuList() [数据列表]</p>
+<p>杜绝完全不规范的缩写，避免望文不知义：</p>
+<p>反例： button“缩写”命名成 bt；product “缩写”命名成 pro，此类随意缩写严重 降低了代码的可阅读性</p>
+<p>严禁ABCD123456此类命名</p>
+<h3 id="css-命名规范"><a href="#css-命名规范" class="headerlink" title="css 命名规范"></a>css 命名规范</h3><h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>命名使用 kebab-case 规则（全部采用小写方式，以中线分隔）</p>
+<p>正例： #user-avatar</p>
+<p>反例：#userAvatar</p>
+<h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><p>命名使用 CSS <a target="_blank" rel="noopener" href="https://getbem.com/">BEM</a> 规则（全部采用小写方式，以中线、下划线分隔）</p>
+<p>命名模式</p>
+<ul>
+<li>block {}，block 代表了更高级别的抽象或组件。(多词 - 中划线分割)</li>
+<li>block__element {}，代表 .block 的后代，用于形成一个完整的 .block 的整体。 (多词 - 中划线分割)</li>
+<li>block–modifier {}，代表 .block 的不同状态或不同版本。(多词 - 中划线分割)</li>
+</ul>
+<pre><code class="css">/** 块 */
+.nav-primary &#123;&#125;
+/** 块__元素 */
+.nav-primary__link
+/** 块__元素--修饰符 */
+.nav-primary__link--is-active
+
+/** 块 */
+.grid
+/** 块__元素 */
+.grid__description
+/** 块__元素 */
+.grid__img-wrap
+/** 块__元素 */
+.grid__img
+
+/** 块 */
+.global-footer
+/** 块__元素 */
+.global-footer__col
+/** 块__元素 */
+.global-footer__header
+/** 块__元素 */
+.global-footer__link
+</code></pre>
+<pre><code class="html">&lt;form class=&quot;form form--simple&quot;&gt;
+    &lt;input class=&quot;form__input&quot; type=&quot;text&quot; /&gt;
+    &lt;button class=&quot;form__button form__button--disabled&quot;&gt;submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>正例：</p>
+<pre><code class="html">&lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-head&quot;&gt;
+        &lt;h1 class=&quot;card-head__title&quot;&gt;标题&lt;/h1&gt;
+        &lt;span class=&quot;card-head__title__sub&quot;&gt;子标题&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card-inner&quot;&gt;
+        &lt;slot /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>反例：</p>
+<pre><code class="html">&lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;head&quot;&gt;
+        &lt;h1 class=&quot;title&quot;&gt;标题&lt;/h1&gt;
+        &lt;span class=&quot;title-sub&quot;&gt;子标题&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;inner&quot;&gt;
+        &lt;slot /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>正例：</p>
+<pre><code class="html">&lt;article class=&quot;article&quot;&gt;
+    &lt;div class=&quot;article-body&quot;&gt;
+        &lt;button class=&quot;article__button-primary&quot;&gt;按钮1&lt;/button&gt;
+        &lt;button class=&quot;article__button-success&quot;&gt;按钮2&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>反例：</p>
+<pre><code class="html">&lt;article class=&quot;article&quot;&gt;
+    &lt;div class=&quot;body&quot;&gt;
+        &lt;button class=&quot;button-primary&quot;&gt;按钮1&lt;/button&gt;
+        &lt;button class=&quot;button-success&quot;&gt;按钮2&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>参考引用</p>
+<p><a target="_blank" rel="noopener" href="https://codeguide.bootcss.com/">https://codeguide.bootcss.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://getbem.com/">https://getbem.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903740978249735">https://juejin.cn/post/6844903740978249735</a></p>
+<h4 id="书写顺序"><a href="#书写顺序" class="headerlink" title="书写顺序"></a>书写顺序</h4><p>书写顺序按照（相同层级顺序按照字符长度排先后顺序）</p>
+<ul>
+<li>元素位置 层级 显示方式</li>
+<li>元素大小尺寸 对齐方式</li>
+<li>字体 行高</li>
+<li>颜色</li>
+<li>元素外貌修饰</li>
+<li>动画过度设置</li>
+</ul>
+<pre><code class="css">.card &#123;
+    /** 元素位置 层级 显示方式 */
+    position: reactive;
+    display: block;
+
+    /** 元素大小尺寸 对齐方式 */
+    padding: 10px;
+    margin: 0 auto;
+
+    /** 字体 行高 */
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+
+    /** 颜色 */
+    color: #333;
+    background-color: #fff;
+
+    /** 元素外貌修饰 */
+    cursor: default;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+
+    /** 动画过度设置 */
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+    transition-property: color;
+&#125;
+</code></pre>
+<h4 id="常用的-CSS-命名规则"><a href="#常用的-CSS-命名规则" class="headerlink" title="常用的 CSS 命名规则"></a>常用的 CSS 命名规则</h4><ul>
+<li>头：header</li>
+<li>内容：content&#x2F;container&#x2F;wrapper&#x2F;inner</li>
+<li>尾：footer</li>
+<li>导航：nav</li>
+<li>侧栏：sidebar</li>
+<li>栏目：column</li>
+<li>页面外围控制整体佈局宽度：wrapper</li>
+<li>左右中：left right center</li>
+<li>登录条：login-bar</li>
+<li>标志：logo</li>
+<li>广告：banner</li>
+<li>页面主体：main</li>
+<li>热点：hot</li>
+<li>新闻：news</li>
+<li>下载：download</li>
+<li>子导航：sub-nav</li>
+<li>菜单：menu</li>
+<li>子菜单：submenu</li>
+<li>搜索：search</li>
+<li>友情链接：friend-link</li>
+<li>页脚：footer</li>
+<li>版权：copyright</li>
+<li>滚动：scroll</li>
+<li>标签：tags</li>
+<li>文章列表：list</li>
+<li>提示信息：msg&#x2F;message</li>
+<li>小技巧：tips</li>
+<li>栏目标题：title</li>
+<li>加入：join</li>
+<li>指南：guide</li>
+<li>服务：service</li>
+<li>注册：register</li>
+<li>状态：status</li>
+<li>投票：vote</li>
+<li>合作伙伴：partner</li>
+</ul>
+<h3 id="JS-命名规范"><a href="#JS-命名规范" class="headerlink" title="JS 命名规范"></a>JS 命名规范</h3><p>根据 eslint 配置</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>命名方法：小驼峰式命名法</p>
+<p>命名规范：前缀应当是名词 + 后缀动词</p>
+<p>正例：</p>
+<pre><code class="js">let maxCount = 10
+let tableTitle = &#39;销售数据&#39;
+</code></pre>
+<p>反例：</p>
+<pre><code class="js">let max_count = 10
+let table_title = &#39;销售数据&#39;
+</code></pre>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>命名方法：名称全部大写(必须使用 const 声明)</p>
+<p>命名规范：使用大写字母和下划线来组合命名，下划线用以分割单词</p>
+<pre><code class="js">const MAX_COUNT = 10
+const TABLE_TITLE = &#39;销售数据&#39;
+</code></pre>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>命名方法：小驼峰式命名法</p>
+<p>命名规范：前缀应当是动词 + 后缀名词</p>
+<p>动词列表：</p>
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th>含义</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>can</td>
+<td>判断是否可执行某个动作(权限)</td>
+<td>函数返回一个布尔值。true：可执行；false：不可执行</td>
+</tr>
+<tr>
+<td>has</td>
+<td>判断是否含有某个值</td>
+<td>函数返回一个布尔值。true：含有此值；false：不含有此值</td>
+</tr>
+<tr>
+<td>is</td>
+<td>判断是否为某个值</td>
+<td>函数返回一个布尔值。true：为某个值；false：不为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取某个值</td>
+<td>函数返回一个非布尔值</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置某个值</td>
+<td>无返回值、返回是否设置成功或者返回链式对象</td>
+</tr>
+<tr>
+<td>load</td>
+<td>加载某些数据</td>
+<td>无返回值或者返回是否加载完成的结果</td>
+</tr>
+<tr>
+<td>create</td>
+<td>创建某些数据</td>
+<td>必须要有返回值</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>移除某些数据</td>
+<td>无返回值或者返回是已移除的结果</td>
+</tr>
+</tbody></table>
+<pre><code class="js">function createTable() &#123;
+    return &#123; data: [], loading: false &#125;
+&#125;
+
+function getName() &#123;
+    return this.name
+&#125;
+</code></pre>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>命名方法：大驼峰式</p>
+<p>命名规范：前缀为名称</p>
+<pre><code class="js">class Persion &#123;
+    constructor(options) &#125;&#123;
+        this.name = options.name
+    &#125;
+&#125;
+</code></pre>
+<h4 id="类的成员"><a href="#类的成员" class="headerlink" title="类的成员"></a>类的成员</h4><p>公共属性和方法：小驼峰</p>
+<p>私有属性和方法：前缀为_(下划线)，后面小驼峰</p>
+<pre><code class="js">class Persion &#123;
+    constructor(options) &#125;&#123;
+        this.name = options.name
+        this._sex = options.sex
+    &#125;
+
+    _full() &#123;
+        return `姓名：$&#123;this.name&#125; 性别：$&#123;this._sex&#125;`
+    &#125;
+
+    sayName() &#123;
+        console.log(&#39;你好&#39;, this.name)
+    &#125;
+&#125;
+</code></pre>
+<p>附常用的动词列表：</p>
+<table>
+<thead>
+<tr>
+<th>get 获取</th>
+<th>set 设置</th>
+<th>add 增加</th>
+<th>remove 删除</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create 创建</td>
+<td>destroy 移除</td>
+<td>start 启动</td>
+<td>stop 停止</td>
+</tr>
+<tr>
+<td>open 打开</td>
+<td>close 关闭</td>
+<td>read 读取</td>
+<td>write 写入</td>
+</tr>
+<tr>
+<td>load 载入</td>
+<td>save 保存</td>
+<td>begin 开始</td>
+<td>end 结束</td>
+</tr>
+<tr>
+<td>backup 备份</td>
+<td>restore 恢复</td>
+<td>import 导入</td>
+<td>export 导出</td>
+</tr>
+<tr>
+<td>split 分割</td>
+<td>merge 合并</td>
+<td>inject 注入</td>
+<td>delete 移除</td>
+</tr>
+<tr>
+<td>add 加入</td>
+<td>append 添加</td>
+<td>clean 清理</td>
+<td>clear 清除</td>
+</tr>
+<tr>
+<td>index 索引</td>
+<td>sort 排序</td>
+<td>find 查找</td>
+<td>search 搜索</td>
+</tr>
+<tr>
+<td>increase 增加</td>
+<td>decrease 减少</td>
+<td>play 播放</td>
+<td>pause 暂停</td>
+</tr>
+<tr>
+<td>launch 启动</td>
+<td>run 运行</td>
+<td>compile 编译</td>
+<td>execute 执行</td>
+</tr>
+<tr>
+<td>debug 调试</td>
+<td>trace 跟踪</td>
+<td>observe 观察</td>
+<td>listen 监听</td>
+</tr>
+<tr>
+<td>build 构建</td>
+<td>publish 发布</td>
+<td>input 输入</td>
+<td>output 输出</td>
+</tr>
+<tr>
+<td>encode 编码</td>
+<td>decode 解码</td>
+<td>encrypt 加密</td>
+<td>decrypt 解密</td>
+</tr>
+<tr>
+<td>compress 压缩</td>
+<td>decompress 解压缩</td>
+<td>pack 打包</td>
+<td>unpack 解包</td>
+</tr>
+<tr>
+<td>parse 解析</td>
+<td>emit 生成</td>
+<td>connect 连接</td>
+<td>disconnect 断开</td>
+</tr>
+<tr>
+<td>send 发送</td>
+<td>receive 接收</td>
+<td>download 下载</td>
+<td>upload 上传</td>
+</tr>
+<tr>
+<td>refresh 刷新</td>
+<td>sync 同步</td>
+<td>update 更新</td>
+<td>revert 复原</td>
+</tr>
+<tr>
+<td>lock 锁定</td>
+<td>unlock 解锁</td>
+<td>check out 签出</td>
+<td>check in 签入</td>
+</tr>
+<tr>
+<td>submit 提交</td>
+<td>commit 交付</td>
+<td>push 推</td>
+<td>pull 拉</td>
+</tr>
+<tr>
+<td>expand 展开</td>
+<td>collapse 折叠</td>
+<td>begin 起始</td>
+<td>end 结束</td>
+</tr>
+<tr>
+<td>start 开始</td>
+<td>finish 完成</td>
+<td>enter 进入</td>
+<td>exit 退出</td>
+</tr>
+<tr>
+<td>abort 放弃</td>
+<td>quit 离开</td>
+<td>obsolete 废弃</td>
+<td>depreciate 废旧</td>
+</tr>
+<tr>
+<td>collect 收集</td>
+<td>collection 合集</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/05/07/vscode-plugin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          前端 Vscode 常用插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">项目工程化之 eslint+prettier+stylelint+commitlint</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=前端开发规范 - 机车靓仔&url=https%3A%2F%2Fsunday9787.github.io%2F2023%2F05%2F07%2Fcode-style%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=前端开发规范 - 机车靓仔&u=https%3A%2F%2Fsunday9787.github.io%2F2023%2F05%2F07%2Fcode-style%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=前端开发规范 - 机车靓仔&url=https://sunday9787.github.io/2023/05/07/code-style/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+<section class="comments comments-disqus">
+    <div id="disqus_thread"></div>
+    <script>
+        ;(function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script')
+            s.src =
+                'https://ji-che-jing-zi.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())
+            ;(d.head || d.body).appendChild(s)
+        })()
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pixijs/">pixijs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nextTick/" rel="tag">$nextTick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element-form/" rel="tag">element-form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stylelint/" rel="tag">stylelint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%AE%89%E5%85%A8/" rel="tag">web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/07/vscode-plugin/">前端 Vscode 常用插件</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/07/code-style/">前端开发规范</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/21/eslint-prettier-stylelint-commitlint/">项目工程化之 eslint+prettier+stylelint+commitlint</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/webpack-ts-es6-vue/">webpack+ts+es6+vue 配置教程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/tips/">dom-tips</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            机车靓仔 &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f5283a8f589ab63d2406c1a2ecac6162";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
